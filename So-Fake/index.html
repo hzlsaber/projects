@@ -540,5 +540,44 @@ directly on the SID-Set; values in parentheses indicate performance changes afte
     </div>
   </footer>
 
+  <script>
+// Visual carousel functions
+let currentVisualSlideIndex = 0;
+const visualSlides = document.querySelectorAll('#visual-carousel-slides .carousel-slide');
+const visualIndicators = document.querySelectorAll('.carousel-indicators .indicator');
+const totalVisualSlides = visualSlides ? visualSlides.length : 0;
+
+function showVisualSlide(index) {
+    const slidesContainer = document.getElementById('visual-carousel-slides');
+    if (slidesContainer) {
+        slidesContainer.style.transform = `translateX(-${index * 100}%)`;
+        
+        // Update indicators
+        visualIndicators.forEach((indicator, i) => {
+            indicator.classList.toggle('active', i === index);
+        });
+        
+        currentVisualSlideIndex = index;
+    }
+}
+
+function nextVisualSlide() {
+    if (totalVisualSlides > 0) {
+        const nextIndex = (currentVisualSlideIndex + 1) % totalVisualSlides;
+        showVisualSlide(nextIndex);
+    }
+}
+
+function prevVisualSlide() {
+    if (totalVisualSlides > 0) {
+        const prevIndex = (currentVisualSlideIndex - 1 + totalVisualSlides) % totalVisualSlides;
+        showVisualSlide(prevIndex);
+    }
+}
+
+function currentVisualSlide(index) {
+    showVisualSlide(index - 1);
+}
+</script>
   </body>
   </html>
