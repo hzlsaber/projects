@@ -567,7 +567,28 @@ directly on the SID-Set; values in parentheses indicate performance changes afte
     slides.style.transform = `translateX(-${tamperedSlideIndex * 100}%)`;
   }
 </script>
+<style>
+.carousel-btn.center-btn {
+  background-color: #ED7845;
+  border: none;
+  border-radius: 8px;
+  width: 44px;
+  height: 44px;
+  margin: 0 8px;
+  font-size: 20px;
+  color: white;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: background-color 0.3s ease;
+}
 
+.carousel-btn.center-btn:hover {
+  background-color: #d66734;
+}
+</style>
 
   </body>
   </html>
