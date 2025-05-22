@@ -280,7 +280,7 @@
         <div class="box" style="margin-top: 0;">
             <div class="grey-box" style="border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); background: linear-gradient(to right, #f8f9fa, #e9ecef);">
           <p style="margin: 0; padding: 15px; font-weight: 500; color: #495057; text-align: center;">
-            <span style="color: #ED7845; font-weight: 700;">Figure: Visual Examples of Full Synthetic Images from So-Fake-Set</span>
+            <span style="color: #ED7845; font-weight: 700;">Figure: Visual Examples of Full Synthetic Images from So-Fake-OOD</span>
           </p>
         </div>
           <div class="carousel-container" style="position: relative; max-width: 100%; overflow: hidden;">
@@ -301,11 +301,47 @@
   </button>
 </div>
           <div class="content">
-            <p>This figure showcases diverse full synthetic images generated as part of the So-Fake-Set. These examples highlight the dataset's wide range of content categories — including people, animals, nature, and indoor scenes — produced using prompts to 35 state-of-the-art generative models. The visual realism and variety reflect the complexity of modern synthetic media found in real-world social platforms.</p>
+            <p>This figure showcases diverse examples from <strong>So-Fake-OOD</strong>, a benchmark specifically curated to evaluate out-of-distribution generalization. These images are collected from real Reddit subreddits, capturing complex, authentic content across a wide range of topics. The diversity and realism of So-Fake-OOD present significant challenges for forgery detection models, making it ideal for testing robustness beyond curated datasets.</p>
           </div>
         </div>
       </div>
     </div>
+
+  <div class="css-collapsible">
+  <input type="checkbox" id="css-toggle-tampered" />
+  <label for="css-toggle-tampered" class="box collapsible-header" style="cursor: pointer; margin-bottom: 0;">
+    <strong>Tampered Images</strong>
+    <span class="icon is-pulled-right chevron"><i class="fas fa-chevron-down"></i></span>
+  </label>
+  <div class="collapsible-content">
+    <div class="box" style="margin-top: 0;">
+      <div class="grey-box" style="border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); background: linear-gradient(to right, #f8f9fa, #e9ecef);">
+        <p style="margin: 0; padding: 15px; font-weight: 500; color: #495057; text-align: center;">
+          <span style="color: #ED7845; font-weight: 700;">Figure: Visual Examples of Tampered Images from So-Fake-OOD</span>
+        </p>
+      </div>
+      <div class="carousel-container" style="position: relative; max-width: 100%; overflow: hidden;">
+        <div class="carousel-slides" style="display: flex; transition: transform 0.5s ease;">
+          <img src="statics/images/t_case1.png" alt="tampered 1" style="width: 100%; flex-shrink: 0;">
+          <img src="statics/images/t_case2.png" alt="tampered 2" style="width: 100%; flex-shrink: 0;">
+          <img src="statics/images/t_case3.png" alt="tampered 3" style="width: 100%; flex-shrink: 0;">
+          <img src="statics/images/t_case4.png" alt="tampered 4" style="width: 100%; flex-shrink: 0;">
+          <img src="statics/images/t_case5.png" alt="tampered 5" style="width: 100%; flex-shrink: 0;">
+        </div>
+
+        <button class="carousel-btn left" onclick="plusSlides(-1)" style="position: absolute; top: 50%; left: 10px; transform: translateY(-50%); background: none; border: none; font-size: 2rem; color: #ED7845;">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="carousel-btn right" onclick="plusSlides(1)" style="position: absolute; top: 50%; right: 10px; transform: translateY(-50%); background: none; border: none; font-size: 2rem; color: #ED7845;">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+      <div class="content">
+            <p>This figure showcases diverse examples from <strong>So-Fake-OOD</strong>, a benchmark specifically curated to evaluate out-of-distribution generalization. These images are collected from real Reddit subreddits, capturing complex, authentic content across a wide range of topics. The diversity and realism of So-Fake-OOD present significant challenges for forgery detection models, making it ideal for testing robustness beyond curated datasets.</p>
+      </div>
+    </div>
+  </div>
+</div>
   </div>
 </section>
 
