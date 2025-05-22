@@ -283,8 +283,8 @@
             <span style="color: #ED7845; font-weight: 700;">Figure: Visual Examples of Full Synthetic Images from So-Fake-OOD</span>
           </p>
         </div>
-          <div class="carousel-container" style="position: relative; max-width: 100%; overflow: hidden;">
-  <div class="carousel-slides" style="display: flex; transition: transform 0.5s ease;">
+          <div class="carousel-container" id="carousel-full">
+  <div class="carousel-slides" id="slides-full" style="display: flex; transition: transform 0.5s ease;">
     <img src="statics/images/f_s_case1.png" alt="case 1" style="width: 100%; flex-shrink: 0;">
     <img src="statics/images/f_s_case2.png" alt="case 2" style="width: 100%; flex-shrink: 0;">
      <img src="statics/images/f_s_case3.png" alt="case 3" style="width: 100%; flex-shrink: 0;">
@@ -293,12 +293,8 @@
   </div>
 
   <!-- Left and right controls -->
-  <button class="carousel-btn left" onclick="plusSlides(-1)" style="position: absolute; top: 50%; left: 10px; transform: translateY(-50%); background: none; border: none; font-size: 2rem; color: #ED7845;">
-    <i class="fas fa-chevron-left"></i>
-  </button>
-  <button class="carousel-btn right" onclick="plusSlides(1)" style="position: absolute; top: 50%; right: 10px; transform: translateY(-50%); background: none; border: none; font-size: 2rem; color: #ED7845;">
-    <i class="fas fa-chevron-right"></i>
-  </button>
+  <button onclick="plusSlidesFull(-1)">...</button>
+  <button onclick="plusSlidesFull(1)">...</button>
 </div>
           <div class="content">
             <p>This figure showcases diverse examples from <strong>So-Fake-OOD</strong>, a benchmark specifically curated to evaluate out-of-distribution generalization. These images are collected from real Reddit subreddits, capturing complex, authentic content across a wide range of topics. The diversity and realism of So-Fake-OOD present significant challenges for forgery detection models, making it ideal for testing robustness beyond curated datasets.</p>
@@ -320,8 +316,8 @@
           <span style="color: #ED7845; font-weight: 700;">Figure: Visual Examples of Tampered Images from So-Fake-OOD</span>
         </p>
       </div>
-      <div class="carousel-container" style="position: relative; max-width: 100%; overflow: hidden;">
-        <div class="carousel-slides" style="display: flex; transition: transform 0.5s ease;">
+      <div class="carousel-container" id="carousel-tampered">
+  <div class="carousel-slides" id="slides-tampered" style="display: flex; transition: transform 0.5s ease;">
           <img src="statics/images/t_case1.png" alt="tampered 1" style="width: 100%; flex-shrink: 0;">
           <img src="statics/images/t_case2.png" alt="tampered 2" style="width: 100%; flex-shrink: 0;">
           <img src="statics/images/t_case3.png" alt="tampered 3" style="width: 100%; flex-shrink: 0;">
@@ -329,12 +325,8 @@
           <img src="statics/images/t_case5.png" alt="tampered 5" style="width: 100%; flex-shrink: 0;">
         </div>
 
-        <button class="carousel-btn left" onclick="plusSlides(-1)" style="position: absolute; top: 50%; left: 10px; transform: translateY(-50%); background: none; border: none; font-size: 2rem; color: #ED7845;">
-          <i class="fas fa-chevron-left"></i>
-        </button>
-        <button class="carousel-btn right" onclick="plusSlides(1)" style="position: absolute; top: 50%; right: 10px; transform: translateY(-50%); background: none; border: none; font-size: 2rem; color: #ED7845;">
-          <i class="fas fa-chevron-right"></i>
-        </button>
+         <button onclick="plusSlidesTampered(-1)">...</button>
+  <button onclick="plusSlidesTampered(1)">...</button>
       </div>
       <div class="content">
             <p>This figure showcases diverse examples from <strong>So-Fake-OOD</strong>, a benchmark specifically curated to evaluate out-of-distribution generalization. These images are collected from real Reddit subreddits, capturing complex, authentic content across a wide range of topics. The diversity and realism of So-Fake-OOD present significant challenges for forgery detection models, making it ideal for testing robustness beyond curated datasets.</p>
@@ -547,21 +539,34 @@ directly on the SID-Set; values in parentheses indicate performance changes afte
   </footer>
 
 <script>
-  let slideIndex = 0;
-  const slides = document.querySelector('.carousel-slides');
-  const totalSlides = slides.children.length;
+  // Full Synthetic Carousel
+  let indexFull = 0;
+  const slidesFull = document.getElementById('slides-full');
+  const totalFull = slidesFull.children.length;
 
-  function showSlide(index) {
-    slideIndex = (index + totalSlides) % totalSlides;
-    slides.style.transform = `translateX(-${slideIndex * 100}%)`;
+  function showSlideFull(index) {
+    indexFull = (index + totalFull) % totalFull;
+    slidesFull.style.transform = `translateX(-${indexFull * 100}%)`;
   }
 
-  function plusSlides(n) {
-    showSlide(slideIndex + n);
+  function plusSlidesFull(n) {
+    showSlideFull(indexFull + n);
   }
 
-  // Optional: Auto-play
-  // setInterval(() => plusSlides(1), 5000);
+  // Tampered Carousel
+  let indexTampered = 0;
+  const slidesTampered = document.getElementById('slides-tampered');
+  const totalTampered = slidesTampered.children.length;
+
+  function showSlideTampered(index) {
+    indexTampered = (index + totalTampered) % totalTampered;
+    slidesTampered.style.transform = `translateX(-${indexTampered * 100}%)`;
+  }
+
+  function plusSlidesTampered(n) {
+    showSlideTampered(indexTampered + n);
+  }
 </script>
+
   </body>
   </html>
