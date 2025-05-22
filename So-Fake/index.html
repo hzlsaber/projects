@@ -293,19 +293,11 @@
   </div>
 
   <!-- Left and right controls -->
- <button class="carousel-btn left" onclick="plusSlidesTampered(-1)" 
-  style="position: absolute; top: 50%; left: 10px; transform: translateY(-50%);
-         background-color: rgba(255, 255, 255, 0.7); border: none; 
-         border-radius: 50%; width: 40px; height: 40px; 
-         font-size: 20px; color: #ED7845; display: flex; align-items: center; justify-content: center; cursor: pointer;">
+<button class="carousel-btn left" onclick="plusSlidesFull(-1)" ...>
   <i class="fas fa-chevron-left"></i>
 </button>
 
-<button class="carousel-btn right" onclick="plusSlidesTampered(1)" 
-  style="position: absolute; top: 50%; right: 10px; transform: translateY(-50%);
-         background-color: rgba(255, 255, 255, 0.7); border: none; 
-         border-radius: 50%; width: 40px; height: 40px; 
-         font-size: 20px; color: #ED7845; display: flex; align-items: center; justify-content: center; cursor: pointer;">
+<button class="carousel-btn right" onclick="plusSlidesFull(1)" ...>
   <i class="fas fa-chevron-right"></i>
 </button>
    
@@ -339,19 +331,11 @@
           <img src="statics/images/t_case5.png" alt="tampered 5" style="width: 100%; flex-shrink: 0;">
         </div>
 
-         <button class="carousel-btn left" onclick="plusSlidesTampered(-1)" 
-  style="position: absolute; top: 50%; left: 10px; transform: translateY(-50%);
-         background-color: rgba(255, 255, 255, 0.7); border: none; 
-         border-radius: 50%; width: 40px; height: 40px; 
-         font-size: 20px; color: #ED7845; display: flex; align-items: center; justify-content: center; cursor: pointer;">
+ <button class="carousel-btn left" onclick="plusSlidesTampered(-1)" ...>
   <i class="fas fa-chevron-left"></i>
 </button>
 
-<button class="carousel-btn right" onclick="plusSlidesTampered(1)" 
-  style="position: absolute; top: 50%; right: 10px; transform: translateY(-50%);
-         background-color: rgba(255, 255, 255, 0.7); border: none; 
-         border-radius: 50%; width: 40px; height: 40px; 
-         font-size: 20px; color: #ED7845; display: flex; align-items: center; justify-content: center; cursor: pointer;">
+<button class="carousel-btn right" onclick="plusSlidesTampered(1)" ...>
   <i class="fas fa-chevron-right"></i>
 </button>
       </div>
@@ -566,34 +550,24 @@ directly on the SID-Set; values in parentheses indicate performance changes afte
   </footer>
 
 <script>
-  // Full Synthetic Carousel
-  let indexFull = 0;
-  const slidesFull = document.getElementById('slides-full');
-  const totalFull = slidesFull.children.length;
-
-  function showSlideFull(index) {
-    indexFull = (index + totalFull) % totalFull;
-    slidesFull.style.transform = `translateX(-${indexFull * 100}%)`;
-  }
+  let fullSlideIndex = 0;
+  let tamperedSlideIndex = 0;
 
   function plusSlidesFull(n) {
-    showSlideFull(indexFull + n);
-  }
-
-  // Tampered Carousel
-  let indexTampered = 0;
-  const slidesTampered = document.getElementById('slides-tampered');
-  const totalTampered = slidesTampered.children.length;
-
-  function showSlideTampered(index) {
-    indexTampered = (index + totalTampered) % totalTampered;
-    slidesTampered.style.transform = `translateX(-${indexTampered * 100}%)`;
+    const slides = document.querySelector("#slides-full");
+    const total = slides.children.length;
+    fullSlideIndex = (fullSlideIndex + n + total) % total;
+    slides.style.transform = `translateX(-${fullSlideIndex * 100}%)`;
   }
 
   function plusSlidesTampered(n) {
-    showSlideTampered(indexTampered + n);
+    const slides = document.querySelector("#slides-tampered");
+    const total = slides.children.length;
+    tamperedSlideIndex = (tamperedSlideIndex + n + total) % total;
+    slides.style.transform = `translateX(-${tamperedSlideIndex * 100}%)`;
   }
 </script>
+
 
   </body>
   </html>
