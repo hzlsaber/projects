@@ -45,26 +45,91 @@
   <script src="statics/js/index.js"></script>
     <link rel="stylesheet" href="statics/css/index.css">
 
-  <!-- ADD THE CSS HERE -->
-  <style>
-  .css-collapsible input[type="checkbox"] {
-    display: none;
-  }
-  .css-collapsible .collapsible-content {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease;
-  }
-  .css-collapsible input[type="checkbox"]:checked + .collapsible-header + .collapsible-content {
-    max-height: 1000px;
-  }
-  .css-collapsible .chevron {
-    transition: transform 0.3s ease;
-  }
-  .css-collapsible input[type="checkbox"]:checked + .collapsible-header .chevron {
-    transform: rotate(180deg);
-  }
-  </style>
+<style>
+.css-collapsible input[type="checkbox"] {
+  display: none;
+}
+.css-collapsible .collapsible-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+.css-collapsible input[type="checkbox"]:checked + .collapsible-header + .collapsible-content {
+  max-height: 2000px; /* Increased for carousel content */
+}
+.css-collapsible .chevron {
+  transition: transform 0.3s ease;
+}
+.css-collapsible input[type="checkbox"]:checked + .collapsible-header .chevron {
+  transform: rotate(180deg);
+}
+
+/* Simple carousel styles */
+.simple-carousel {
+  position: relative;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.carousel-container {
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.carousel-slides {
+  display: flex;
+  transition: transform 0.3s ease;
+}
+
+.carousel-slide {
+  min-width: 100%;
+  text-align: center;
+}
+
+.carousel-slide img {
+  max-width: 100%;
+  height: auto;
+}
+
+.carousel-controls {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.carousel-btn {
+  background: #3273dc;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  margin: 0 0.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.carousel-btn:hover {
+  background: #2366d1;
+}
+
+.carousel-indicators {
+  text-align: center;
+  margin-top: 0.5rem;
+}
+
+.indicator {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #dbdbdb;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.indicator.active {
+  background: #3273dc;
+}
+</style>
 </head>
 <body>
 
@@ -270,23 +335,61 @@
 <section class="section">
   <div class="container is-max-desktop">
     <h3 class="title is-4">Examples</h3>
-
+    
     <div class="css-collapsible">
-      <input type="checkbox" id="css-toggle" />
-      <label for="css-toggle" class="box collapsible-header" style="cursor: pointer; margin-bottom: 0;">
+      <input type="checkbox" id="css-toggle-examples" />
+      <label for="css-toggle-examples" class="box collapsible-header" style="cursor: pointer; margin-bottom: 0;">
         <strong>Full Synthetic Images</strong>
         <span class="icon is-pulled-right chevron"><i class="fas fa-chevron-down"></i></span>
       </label>
       <div class="collapsible-content">
         <div class="box" style="margin-top: 0;">
-          <div class="grey-box" style="border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); background: linear-gradient(to right, #f8f9fa, #e9ecef); text-align: left;">
+          <div class="grey-box" style="border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); background: linear-gradient(to right, #f8f9fa, #e9ecef); text-align: left; margin-bottom: 1rem;">
             <p style="margin: 0; padding: 15px; font-weight: 500; color: #495057;">
               <span style="color: #ED7845; font-weight: 700;">Full Synthetic Images:</span>
+              Browse through our collection of synthetic images.
             </p>
           </div>
-          <img src="statics/images/image4.png" alt="efficacy" style="max-width: 100%;">
-          <img src="statics/images/image5.png" alt="efficacy" style="max-width: 100%;">
-          <div class="content">
+          
+          <!-- Simple Carousel -->
+          <div class="simple-carousel">
+            <div class="carousel-container">
+              <div class="carousel-slides" id="carousel-slides">
+                <div class="carousel-slide">
+                  <img src="statics/images/image4.png" alt="Synthetic Image 1" />
+                  <h2 class="subtitle has-text-centered" style="margin-top: 1rem;">
+                    <strong>Example 1:</strong> First synthetic image example
+                  </h2>
+                </div>
+                <div class="carousel-slide">
+                  <img src="statics/images/image5.png" alt="Synthetic Image 2" />
+                  <h2 class="subtitle has-text-centered" style="margin-top: 1rem;">
+                    <strong>Example 2:</strong> Second synthetic image example  
+                  </h2>
+                </div>
+                <!-- Add more slides as needed -->
+              </div>
+            </div>
+            
+            <!-- Carousel Controls -->
+            <div class="carousel-controls">
+              <button class="carousel-btn" onclick="prevSlide()">
+                <i class="fas fa-chevron-left"></i> Previous
+              </button>
+              <button class="carousel-btn" onclick="nextSlide()">
+                Next <i class="fas fa-chevron-right"></i>
+              </button>
+            </div>
+            
+            <!-- Indicators -->
+            <div class="carousel-indicators" id="indicators">
+              <span class="indicator active" onclick="currentSlide(1)"></span>
+              <span class="indicator" onclick="currentSlide(2)"></span>
+              <!-- Add more indicators for additional slides -->
+            </div>
+          </div>
+          
+          <div class="content" style="margin-top: 1rem;">
             <p><strong>Full Synthetic Image Cases</strong></p>
           </div>
         </div>
