@@ -247,35 +247,30 @@
 
 <section class="section">
   <div class="container is-max-desktop">
-    <h3 class="title is-4">Examples</h3>
+    <h3 class="title is-4">Findings and Analysis</h3>
 
-    <!-- Panel 1 -->
-    <div class="box" style="cursor: pointer;" onclick="toggleCollapse('facet1-body', this)">
-      <strong>Facet 1: Full Synthtic Image Examples</strong>
-      <span class="icon is-pulled-right">
-        <i class="fas fa-chevron-down"></i>
-      </span>
+    <!-- Bulma-compatible collapsible panel -->
+    <div class="box" style="cursor: pointer;" onclick="toggleCollapse('facet-efficacy', this)">
+      <strong>Facet 1: Efficacy</strong>
+      <span class="icon is-pulled-right"><i class="fas fa-chevron-down"></i></span>
     </div>
-    <div id="facet1-body" class="box" style="display: none;">
-       <img src="statics/images/image1.png" alt="full synthetic image_1.">
-       <img src="statics/images/image2.png" alt="full synthetic image_2.">
-       <img src="statics/images/image3.png" alt="full synthetic image_3.">
-      <p>Content for Facet 1</p>
+    <div id="facet-efficacy" class="box" style="display: none;">
+      <div class="grey-box" style="border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); background: linear-gradient(to right, #f8f9fa, #e9ecef); text-align: left;">
+        <p style="margin: 0; padding: 15px; font-weight: 500; color: #495057;">
+          <span style="color: #ED7845; font-weight: 700;">Insight 1:</span>
+          (1) The current assessment of knowledge editing could be unreliable;
+          (2) ICE and GRACE outperform fine-tuning and Locate-then-Edit methods on <strong><i>Efficacy</i></strong>;
+          (3) Domains and LLMs could significantly impact <strong><i>Efficacy</i></strong>.
+        </p>
+      </div>
+      <img src="./static/images/halluedit_efficacy.png" alt="efficacy" style="max-width: 100%;">
+      <div class="content">
+        <p><strong>Efficacy Scores of Knowledge Editing Methods</strong>: The "overall" refers to Efficacy Score (%) on the HalluEditBench dataset across 9 domains. Scores are measured by accuracy on Efficacy Evaluation QA pairs (ensuring 0% pre-edit accuracy).</p>
+      </div>
     </div>
-
-    <!-- Panel 2 -->
-    <div class="box" style="cursor: pointer;" onclick="toggleCollapse('facet2-body', this)">
-      <strong>Facet 2: Tampered Image Examples</strong>
-      <span class="icon is-pulled-right">
-        <i class="fas fa-chevron-down"></i>
-      </span>
-    </div>
-    <div id="facet2-body" class="box" style="display: none;">
-      <p>Content for Facet 2</p>
-    </div>
-
   </div>
 </section>
+
 
 
     <!-- Method -->
