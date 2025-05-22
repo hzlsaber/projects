@@ -283,7 +283,21 @@
             <span style="color: #ED7845; font-weight: 700;">Figure: Visual Examples of Full Synthetic Images from So-Fake-Set</span>
           </p>
         </div>
-          <img src="statics/images/f_s_case.png" alt="efficacy" style="max-width: 100%;">
+          <div class="carousel-container" style="position: relative; max-width: 100%; overflow: hidden;">
+  <div class="carousel-slides" style="display: flex; transition: transform 0.5s ease;">
+    <img src="statics/images/f_s_case1.png" alt="case 1" style="width: 100%; flex-shrink: 0;">
+    <img src="statics/images/image1.png" alt="case 2" style="width: 100%; flex-shrink: 0;">
+    <img src="statics/images/image2.png" alt="case 3" style="width: 100%; flex-shrink: 0;">
+  </div>
+
+  <!-- Left and right controls -->
+  <button class="carousel-btn left" onclick="plusSlides(-1)" style="position: absolute; top: 50%; left: 10px; transform: translateY(-50%); background: none; border: none; font-size: 2rem; color: #ED7845;">
+    <i class="fas fa-chevron-left"></i>
+  </button>
+  <button class="carousel-btn right" onclick="plusSlides(1)" style="position: absolute; top: 50%; right: 10px; transform: translateY(-50%); background: none; border: none; font-size: 2rem; color: #ED7845;">
+    <i class="fas fa-chevron-right"></i>
+  </button>
+</div>
           <div class="content">
             <p>This figure showcases diverse full synthetic images generated as part of the So-Fake-Set. These examples highlight the dataset's wide range of content categories — including people, animals, nature, and indoor scenes — produced using prompts to 35 state-of-the-art generative models. The visual realism and variety reflect the complexity of modern synthetic media found in real-world social platforms.</p>
           </div>
@@ -494,6 +508,22 @@ directly on the SID-Set; values in parentheses indicate performance changes afte
     </div>
   </footer>
 
+<script>
+  let slideIndex = 0;
+  const slides = document.querySelector('.carousel-slides');
+  const totalSlides = slides.children.length;
 
+  function showSlide(index) {
+    slideIndex = (index + totalSlides) % totalSlides;
+    slides.style.transform = `translateX(-${slideIndex * 100}%)`;
+  }
+
+  function plusSlides(n) {
+    showSlide(slideIndex + n);
+  }
+
+  // Optional: Auto-play
+  // setInterval(() => plusSlides(1), 5000);
+</script>
   </body>
   </html>
