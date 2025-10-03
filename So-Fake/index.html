@@ -181,13 +181,12 @@
           <h2 class="title is-3">Overview of So-Fake Dataset</h2>
           <div class="content">
             <div class="item">
-            <img src="statics/images/Figure1.png" alt="So-Fake-R1" style="display: block; margin: 0 auto; max-width: 100%; width: 100%;">
+            <img src="statics/images/ICLR_Figure1.png" alt="So-Fake-R1" style="display: block; margin: 0 auto; max-width: 100%; width: 100%;">
           </div>
           <div class="content has-text-justified">
             <p>
-              Overview of So-Fake Dataset. (a) Comparison of forgery detection methods from 2020 to 2025 shows our dataset includes the most recent and the largest number of methods. 
-              (b) So-Fake-Set covers diverse real social media scenarios, including 12 different categories. 
-              (c) Different generative methods and visual examples in So-Fake-Set and So-Fake-OOD.
+              <strong>(a) Overview.</strong> So-Fake comprises So-Fake-Set (train/val) and So-Fake-OOD (test), which together enable evaluation of detection, localization, and explanation with So-Fake-R1. 
+  <strong>(b) Illustrative Example.</strong> A real image from the subreddit <em>pics</em> is captioned by an LLM, combined with Language SAM and an inpainting model to produce tampered samples. So-Fake-R1 then analyzes the manipulated image and outputs the class label, localized region, and an interpretable rationale.
             </p>
           </div>
         </div>
